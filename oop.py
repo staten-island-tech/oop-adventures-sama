@@ -3,27 +3,29 @@ class char:
         self.name = name
         self.element = element
 
-class Main(char):
-    def __init__(self, name, element, region, status):
+class Main_char:
+    def __init__(self, name, element, region, status, weapon):
         super().__init__(name, element)
         self.region = region
         self.status = status
+        self.weapon = weapon
     def show(self):
-        print('Name:', self.name, 'Element:', self.element, 'Region:', self.region, 'Status:', self.status)
+        print('Name:', self.name, 'Element:', self.element, 'Region:', self.region, 'Status:', self.status, 'Weapon', self.weapon)
     
-    Lumine = char('Lumine', 'anemo', 'Teyvat', 'main playable protagonist')
+    Lumine = char('Lumine', 'anemo/wind', 'Teyvat', 'main playable protagonist', 'sword')
 
-class Player_1(Main):
-    def __init__(self, name, element, region, status):
-        super().__init__(name, element, region, status)
+class Player_1_Main:
+    def __init__(self, name, element, region, status, weapon):
+        super().__init__(name, element, region, status, weapon)
     def show(self):
-        print('Name:', self.name, 'Element:', self.element, 'Region:', self.region, 'Status:', self.status)
+        print('Name:', self.name, 'Element:', self.element, 'Region:', self.region, 'Status:', self.status, 'Weaapon', self.weapon)
     
-    Chongyun = char('Chongyun', 'cryo', 'Liyue', 'playable four star')
+    Chongyun = char('Chongyun', 'cryo/ice', 'Liyue', 'playable four star', 'claymore')
 
-class Player_2(Player_1):
-    def __init__(self, name, element, region, status, privileges):
-        super().__init__(name, element, region, status)
-        self.privileges = privileges
+class Player_2_Player_1:
+    def __init__(self, name, element, region, status, weapon):
+        super().__init__(name, element, region, status, weapon)
     def show(self):
-        print('Name:', self.name, 'Element:', self.element, 'Region:', self.region, 'Status:', self.status, 'Privileges', sel)
+        print('Name:', self.name, 'Element:', self.element, 'Region:', self.region, 'Status:', self.status, 'Weapon', self.weapon)
+
+    Yoimiya = char('Yoimiya', 'pyro/fire', 'Inazuma', 'playable five star', 'bow')
