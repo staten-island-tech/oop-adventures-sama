@@ -1,3 +1,5 @@
+import random
+
 print('Welcome Traveler!')
 print('Along with your brother, you are an avid explorer from another dimension.')
 print('You have just set foot on Teyvat.')
@@ -7,42 +9,43 @@ print('Lets start with your name:')
 name = input()
 print('Good luck and may your journey begin.')
 
-class Main:
-    def __init__(self, name, region, status, weapon):
+class Item:
+    def __init__(self, name, rarity):
         self.name = name
-        self.region = region
+        self.rarity = rarity
+    def __str__(self):
+        return f'{self.name}, {self.rarity}'
+
+class Weapon(Item):
+    def __init__(self, name, rarity, damage, type):
+        self.dmg = damage
+        self.type = type
+        super().__init__(name, rarity, damage, type)
+    def __str__(self):
+        return f'{self.name}, {self.rarity}, {self.dmg}, {self.type}'
+
+class Aquila_Favonia(Weapon):
+    def __init__(self):
+        super().__init__(name='Aquila Favonia', rarity='5 star', damage='48', type='sword')
+
+class Deathmatch(Weapon):
+    def __init__(self):
+        super().__init__(name='Deathmatch', rarity='4 star', damage='41', type='polearm')
+
+class Aqua_Simulacra(Weapon):
+    def __init__(self):
+        super().__init__(name='Aqua Simulacra', rarity='5 star', damage='44', type='bow')
+
+class Main:
+    def __init__(self, name, status, weapon):
+        self.name = name
         self.status = status
         self.weapon = weapon
     def __str__(self):
-        return f'{self.name}, {self.region}, {self.status}, {self.weapon}'
-    Traveler = ('Traveler, unknown, main playable protagonist, sword')
-    print(Traveler)
+        return f'{self.name}, {self.status}, {self.weapon}'
+    Traveler = ( status='main playable protagonist', weapon='random.choice')
 
-class NPC_1(Main):
-    def __init__(self, name, region, status, weapon, element):
-        super().__init__(name, region, status, weapon)
-        self.element = element
-    def __str__(self):
-        return f'{self.name}, {self.region}, {self.status}, {self.weapon}, {self.element}'
-    Chongyun = ('Chongyun, Liyue, npc, claymore, cryo/ice')
-    print(Chongyun)
+weapon_list = [Aquila_Favonia, Aqua_Simulacra, Deathmatch]
+print(random.choice(weapon_list))
 
-class NPC_2(NPC_1):
-    def __init__(self, name, region, status, weapon, element):
-        super().__init__(name, element, region, status, weapon)
-    def show(self):
-        print('Name:', self.name, 'Element:', self.element, 'Region:', self.region, 'Status:', self.status, 'Weapon', self.weapon)
-    def __str__(self):
-        return f'{self.name}, {self.region}, {self.status}, {self.weapon}, {self.element}'
-    Yoimiya = ('Yoimiya, Inazuma, npc, bow, pyro/fire')
-    print(Yoimiya)
 
-class NPC_3(NPC_2):
-    def __init__(self, name, region, status, weapon, element):
-        super().__init__(name, element, region, status, weapon)
-    def show(self):
-        print('Name:', self.name, 'Element:', self.element, 'Region:', self.region, 'Status:', self.status, 'Weapon', self.weapon)
-    def __str__(self):
-        return f'{self.name}, {self.region}, {self.status}, {self.weapon}, {self.element}'
-    Jean = ('Jean, Monstadt, npc, sword, anemo/wind')
-    print(Jean)
