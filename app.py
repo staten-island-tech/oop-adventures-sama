@@ -7,7 +7,6 @@ print('After your arrival, however, you encounter an unexpected disaster which c
 print('You have to cross three regions--Monstadt, Liyue, and Inazuma, and find clues about your brother. You may find hilichurls, or monsters, along the way')
 print('Lets start with your name:')
 name = input()
-print('Good luck and may your journey begin.')
 
 class Item:
     def __init__(self, name, rarity):
@@ -36,16 +35,31 @@ class Aqua_Simulacra(Weapon):
     def __init__(self):
         super().__init__(name='Aqua Simulacra', rarity='5 star', damage='44', type='bow')
 
-class Main:
-    def __init__(self, name, status, weapon):
-        self.name = name
-        self.status = status
-        self.weapon = weapon
-    def __str__(self):
-        return f'{self.name}, {self.status}, {self.weapon}'
-    Traveler = ( status='main playable protagonist', weapon='random.choice')
-
-weapon_list = [Aquila_Favonia, Aqua_Simulacra, Deathmatch]
+weapon_list = [Aquila_Favonia, Deathmatch, Aqua_Simulacra]
 print(random.choice(weapon_list))
+print('This is your weapon. You will use it as defense against any barriers along the way.')
+print('Good luck and may your journey begin.')
+
+class Enemy:
+    def __init__(self, name, hp, damage):
+        self.name = name
+        self.hp = hp
+        self.dmg = damage
+
+class Hilichurl(Enemy):
+    def __init__(self):
+        super().__init__(name='Hilichurl', hp='60', damage='15')
+
+class Hilichurl_Shooter(Enemy):
+    def __init__(self):
+        super().__init__(name='Hilichurl Shooter', hp='70', damage='25')
+
+class Unusual_Hilichurl(Enemy):
+    def __init__(self):
+        super().__init__(name='Unusual Hilichurl', hp='85', damage='30')
+
+
+
+
 
 
