@@ -30,9 +30,13 @@ class Aqua_Simulacra(Weapon):
     def __init__(self):
         super().__init__(name='Aqua Simulacra', rarity='5 star', damage='44', type='bow')
 
-weapons = {'Aquila Favonia':Aquila_Favonia, "Deathmatch":Deathmatch, 'Aqua Simulacra':Aqua_Simulacra}
-weapom = random.choice(weapons.values())()
-print(random.choice(weapons))
+class Traveler:
+    def __init__(self, name):
+        self.name = name
+        self.health = 100
+        weapon = {'Aquila Favonia':Aquila_Favonia, "Deathmatch":Deathmatch, 'Aqu a Simulacra':Aqua_Simulacra}
+        self.weapon = random.choice(list(weapon))
+
 print('This is your weapon. You will use it as defense against any barriers along the way.')
 print('Good luck and may your journey begin.')
 
