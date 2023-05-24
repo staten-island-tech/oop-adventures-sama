@@ -1,5 +1,4 @@
 import random
-
 print('Welcome Traveler!')
 print('Along with your brother, you are an avid explorer from another dimension.')
 print('You have just set foot on Teyvat.')
@@ -7,7 +6,6 @@ print('After your arrival, however, you encounter an unexpected disaster which c
 print('You must complete this journey in order to find your brother. You may find hilichurls, or monsters, along the way.')
 print('Lets start with your name:')
 name = input()
-print('Hello there.')
 
 class Weapon:
     def __init__(self, name, rarity, damage, type):
@@ -34,11 +32,12 @@ class Traveler:
     def __init__(self, name):
         self.name = name
         self.health = 100
-        weapon = {'Aquila Favonia':Aquila_Favonia, "Deathmatch":Deathmatch, 'Aqu a Simulacra':Aqua_Simulacra}
-        self.weapon = random.choice(list(weapon))
-
-print('This is your weapon. You will use it as defense against any barriers along the way.')
-print('Good luck and may your journey begin.')
+        self.weapon = 0
+    weapon = {'Aquila Favonia':Aquila_Favonia, "Deathmatch":Deathmatch, 'Aqu a Simulacra':Aqua_Simulacra}
+    choice = random.choice(list(weapon.values()))
+    print(choice)
+    print('This is your weapon. You will use it as defense against any barriers along the way.')
+    print('Good luck and may your journey begin.')
 
 class Enemy:
     def __init__(self, name, hp, damage):
