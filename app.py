@@ -6,6 +6,7 @@ print('After your arrival, however, you encounter an unexpected disaster which c
 print('You must complete this journey in order to find your brother. You may find hilichurls, or monsters, along the way.')
 print('Lets start with your name:')
 name = input()
+print('Good luck and may your journey begin.')
 
 class Weapon:
     def __init__(self, name, rarity, damage, type):
@@ -33,11 +34,14 @@ class Traveler:
         self.name = name
         self.health = 100
         self.weapon = 0
-    weapon = {'Aquila Favonia':Aquila_Favonia, "Deathmatch":Deathmatch, 'Aqu a Simulacra':Aqua_Simulacra}
-    choice = random.choice(list(weapon.values()))
-    print(choice)
-    print('This is your weapon. You will use it as defense against any barriers along the way.')
-    print('Good luck and may your journey begin.')
+        weapon = {'Aquila Favonia':Aquila_Favonia, "Deathmatch":Deathmatch, 'Aqua Simulacra':Aqua_Simulacra}
+        choice = random.choice(list(weapon.values()))
+    
+    def attack(self):
+        return self.attack
+    def take_dmg(self, damage):
+        if self
+
 
 class Enemy:
     def __init__(self, name, hp, damage):
@@ -56,6 +60,7 @@ class Hilichurl_Shooter(Enemy):
 class Unusual_Hilichurl(Enemy):
     def __init__(self):
         super().__init__(name='Unusual Hilichurl', hp='85', damage='30')
+
 
 
 
