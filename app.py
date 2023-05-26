@@ -1,12 +1,30 @@
-import random
+import random 
 print('Welcome Traveler!')
 print('Along with your brother, you are an avid explorer from another dimension.')
 print('You have just set foot on Teyvat.')
 print('After your arrival, however, you encounter an unexpected disaster which causes the separation of you and your brother.')
-print('You must complete this journey in order to find your brother. You may find hilichurls, or monsters, along the way.')
+print('You must fight these hilichurls, or monsters, along the way.')
 print('Lets start with your name:')
 name = input()
 print('Good luck and may your journey begin.')
+
+class Traveler:
+    def __init__(self, name):
+        self.name = name
+        self.hp = 100
+        self.weapon = 0
+    def attack(self):
+        self.hp
+    def weapon(self):
+        weapon = {'Aquila Favonia':Aquila_Favonia, 'Deathmatch':Deathmatch, 'Aqua Simulacra':Aqua_Simulacra}
+        print(random.choice(weapon))
+    def dodge(self, enemy):
+        self.hp += enemy.attack
+        print(f'{self.name} successfully dodged {enemy.name}s attack')
+    def attack(self, enemy):
+        enemy.hp -= self.attack
+        print(f'{self.attack} damage done to {enemy.name}')
+
 
 class Weapon:
     def __init__(self, name, rarity, damage, type):
@@ -19,35 +37,23 @@ class Weapon:
 
 class Aquila_Favonia(Weapon):
     def __init__(self):
-        super().__init__(name='Aquila Favonia', rarity='5 star', damage='48', type='sword')
+        super().__init__(name='Aquila Favonia', rarity='5 star', damage='38', type='sword')
 
 class Deathmatch(Weapon):
     def __init__(self):
-        super().__init__(name='Deathmatch', rarity='4 star', damage='41', type='polearm')
+        super().__init__(name='Deathmatch', rarity='4 star', damage='31', type='polearm')
 
 class Aqua_Simulacra(Weapon):
     def __init__(self):
-        super().__init__(name='Aqua Simulacra', rarity='5 star', damage='44', type='bow')
-
-class Traveler:
-    def __init__(self, name):
-        self.name = name
-        self.health = 100
-        self.weapon = 0
-        weapon = {'Aquila Favonia':Aquila_Favonia, "Deathmatch":Deathmatch, 'Aqua Simulacra':Aqua_Simulacra}
-        choice = random.choice(list(weapon.values()))
-    
-    def attack(self):
-        return self.attack
-    def take_dmg(self, damage):
-        if self
-
+        super().__init__(name='Aqua Simulacra', rarity='5 star', damage='34', type='bow')
 
 class Enemy:
-    def __init__(self, name, hp, damage):
+    def __init__(self, name):
         self.name = name
-        self.hp = hp
-        self.dmg = damage
+        self.hp = 70
+    def attack(self, Traveler):
+        Traveler.hp -= self.attack
+        print(f'{self.attack} damage done to {Traveler.name}')
 
 class Hilichurl(Enemy):
     def __init__(self):
@@ -59,8 +65,19 @@ class Hilichurl_Shooter(Enemy):
 
 class Unusual_Hilichurl(Enemy):
     def __init__(self):
-        super().__init__(name='Unusual Hilichurl', hp='85', damage='30')
+        super().__init__(name='Unusual Hilichurl', hp='85', damage='20')
 
+class Game:
+    def result(self, Traveler, enemy):
+        if Traveler.hp < 1 and enemy.hp > 0:
+            self.game_over = True
+            print('Defeated')
+        elif enemy.hp < 1 and Traveler.hp > 0:
+            self.game_over = True
+            print('Victory!!')
+        elif Traveler.hp < 1 and enemy.hp < 1:
+            self.game_over = True
+            print("Draw")
 
 
 
