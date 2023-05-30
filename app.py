@@ -3,28 +3,10 @@ print('Welcome Traveler!')
 print('Along with your brother, you are an avid explorer from another dimension.')
 print('You have just set foot on Teyvat.')
 print('After your arrival, however, you encounter an unexpected disaster which causes the separation of you and your brother.')
-print('You must fight these hilichurls, or monsters, along the way.')
+print('You must complete this journey fight these hilichurls, or monsters, along the way.')
 print('Lets start with your name:')
 name = input()
 print('Good luck and may your journey begin.')
-
-class Traveler:
-    def __init__(self, name):
-        self.name = name
-        self.hp = 100
-        self.weapon = 0
-    def attack(self):
-        self.hp
-    def weapon(self):
-        weapon = {'Aquila Favonia':Aquila_Favonia, 'Deathmatch':Deathmatch, 'Aqua Simulacra':Aqua_Simulacra}
-        print(random.choice(weapon))
-    def dodge(self, enemy):
-        self.hp += enemy.attack
-        print(f'{self.name} successfully dodged {enemy.name}s attack')
-    def attack(self, enemy):
-        enemy.hp -= self.attack
-        print(f'{self.attack} damage done to {enemy.name}')
-
 
 class Weapon:
     def __init__(self, name, rarity, damage, type):
@@ -47,10 +29,29 @@ class Aqua_Simulacra(Weapon):
     def __init__(self):
         super().__init__(name='Aqua Simulacra', rarity='5 star', damage='34', type='bow')
 
+class Traveler:
+    def __init__(self, name):
+        self.name = name
+        self.hp = 100
+        self.attack = 0
+        self.weapon = 0
+    def attack(self):
+        self.hp
+    def weapon(self):
+        weapon = {'Aquila Favonia':Aquila_Favonia, 'Deathmatch':Deathmatch, 'Aqua Simulacra':Aqua_Simulacra}
+        print(random.choice(weapon))
+    def dodge(self, (Enemy)):
+        self.hp += Enemy.attack
+        print(f'{self.name} successfully dodged {Enemy.name}\'s attack')
+    def attack(self, Enemy):
+        Enemy.hp -= self.attack
+        print(f'{self.attack} damage done to {Enemy.name}')
+
 class Enemy:
     def __init__(self, name):
         self.name = name
         self.hp = 70
+        self.attack = 0
     def attack(self, Traveler):
         Traveler.hp -= self.attack
         print(f'{self.attack} damage done to {Traveler.name}')
