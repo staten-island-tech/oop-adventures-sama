@@ -40,10 +40,10 @@ class Traveler:
     def weapon(self):
         weapon = {'Aquila Favonia':Aquila_Favonia, 'Deathmatch':Deathmatch, 'Aqua Simulacra':Aqua_Simulacra}
         print(random.choice(weapon))
-    def dodge(self, (Enemy)):
+    def dodge(self):
         self.hp += Enemy.attack
         print(f'{self.name} successfully dodged {Enemy.name}\'s attack')
-    def attack(self, Enemy):
+    def attack(self):
         Enemy.hp -= self.attack
         print(f'{self.attack} damage done to {Enemy.name}')
 
@@ -52,7 +52,7 @@ class Enemy:
         self.name = name
         self.hp = 70
         self.attack = 0
-    def attack(self, Traveler):
+    def attack(self):
         Traveler.hp -= self.attack
         print(f'{self.attack} damage done to {Traveler.name}')
 
@@ -67,21 +67,17 @@ class Hilichurl_Shooter(Enemy):
 class Unusual_Hilichurl(Enemy):
     def __init__(self):
         super().__init__(name='Unusual Hilichurl', hp='85', damage='20')
-
+                                                                        
 class Game:
-    def result(self, Traveler, enemy):
-        if Traveler.hp < 1 and enemy.hp > 0:
+
+    def result(self):
+        if Traveler.hp < 1 and Enemy.hp > 0:
             self.game_over = True
             print('Defeated')
-        elif enemy.hp < 1 and Traveler.hp > 0:
+        elif Enemy.hp < 1 and Traveler.hp > 0:
             self.game_over = True
             print('Victory!!')
-        elif Traveler.hp < 1 and enemy.hp < 1:
+        elif Traveler.hp < 1 and Enemy.hp < 1:
             self.game_over = True
-            print("Draw")
-
-
-
-
-
-
+        print('Draw')
+        
